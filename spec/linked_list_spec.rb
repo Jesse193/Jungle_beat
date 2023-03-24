@@ -8,6 +8,9 @@ RSpec.describe LinkedList do
     list = LinkedList.new
     
     expect(list.head). to eq(nil)
-
+    
+    list.append("boop")
+    expect(list.head). to eq("boop")
+    
   end
 end
