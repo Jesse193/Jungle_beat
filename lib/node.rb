@@ -1,4 +1,3 @@
-require './lib/node'
 class Node
   attr_reader :data, :next_node
   def initialize(data)

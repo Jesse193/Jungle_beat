@@ -1,5 +1,6 @@
-require './lib/node'
 require 'rspec'
+require './lib/node'
+
 
 RSpec.describe Node do
 
@@ -8,7 +9,7 @@ RSpec.describe Node do
     expect(node.data). to eq("blob")
     expect(node.next_node). to eq(nil)
 
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
   end
 
 end
