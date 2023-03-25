@@ -1,22 +1,20 @@
 class LinkedList
-  attr_reader :name, :data
-  attr_accessor :head, :next_node
+  attr_reader :name, :data, :list, :node
+  attr_accessor :head, :next_node, :tail
   def initialize
     @head = nil
     @tail = nil
     @counter = 0
-  
+    
   end
 
   def append(data)
-    if @head == nil
-      node = Node.new(data)
-      @head = node
-      @counter += 1
-    elsif
-      @next_node = Node.new(data)
-      @counter += 1
+    if @head != nil
+      @head.next_node = Node.new(data)
+    else
+      @head = Node.new(data)
     end
+    @counter += 1
   end
 
   def count
@@ -24,12 +22,25 @@ class LinkedList
   end
 
   def to_string
-    if @next_node == nil
-      head.data
-    else
-      head.data + " " + next_node.data
+    
+  end
+  
+  def prepend(data)
+    if @head == nil
+      @head = Node.new(data)
+      @counter += 1
+    elsif @head != nil
+      current_head = @head
+      @head = Node.new(data)
+      @head.next_node = current_head
+      @counter += 1
+      
     end
   end
-    
+
+
+
+  
+
 end
 
