@@ -1,6 +1,5 @@
 class LinkedList
-  attr_reader :name, :data, :list, :node
-  attr_accessor :head, :next_node, :tail
+  attr_reader :name, :data, :list, :node, :head, :tail
   def initialize
     @head = nil
     @tail = nil
@@ -61,8 +60,26 @@ class LinkedList
     return node
   end
 
-  
+  # def find(pos1, pos2)
+  #   counter = 0
+  #   current_node = @head
+    
+  #   # require 'pry'; binding.pry
+  #   while current_node.next_node != nil
+  #     counter += 1
+  #     current_node = current_node.next_node
+  #     break
 
+  #   end
+  # end
+  
+  def includes?(data)
+    current_node = head
+    while current_node.data != data
+      current_node = current_node.next_node
+      return true if current_node.data == data
+    end
+  end
 
   
 

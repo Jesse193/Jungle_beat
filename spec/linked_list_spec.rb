@@ -51,8 +51,8 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("bop boop beep")
     list.insert(1, "woo")
     expect(list.count).to eq(4)
-    list.find(2, 1)
-    # require 'pry'; binding.pry
+    # list.find(2, 1)
+    expect(list.includes?("beep")).to be(true)
   end
   
   
