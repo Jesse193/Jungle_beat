@@ -21,10 +21,17 @@ class LinkedList
   def count
     @counter
   end
-
-  # def to_string
-  #   # "#{head.data} #{head.next_node.data}"
-  # end
+  
+  def to_string
+    current_node = head
+    # require 'pry'; binding.pry
+    string = []
+    while current_node != nil
+      string << current_node.data
+      current_node = current_node.next_node
+    end
+    string.join(" ")
+  end
   
   def prepend(data)
     if @head == nil
@@ -45,16 +52,18 @@ class LinkedList
   end
 
   def insert(pos, data)
+    @counter += 1
     node = Node.new(data)
     next_node = pos_at(head, pos)
     pos_at(head, pos - 1).next_node = node
     node.next_node = node
     node.next_node = next_node
     return node
-    @counter += 1
   end
 
   
+
+
   
 
 end
