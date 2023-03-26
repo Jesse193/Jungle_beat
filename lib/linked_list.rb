@@ -11,6 +11,7 @@ class LinkedList
   def append(data)
     if @head != nil
       @head.next_node = Node.new(data)
+      
     else
       @head = Node.new(data)
     end
@@ -21,9 +22,9 @@ class LinkedList
     @counter
   end
 
-  def to_string
-    
-  end
+  # def to_string
+  #   # "#{head.data} #{head.next_node.data}"
+  # end
   
   def prepend(data)
     if @head == nil
@@ -38,8 +39,22 @@ class LinkedList
     end
   end
 
+  def pos_at(node, pos, counter = 0)
+    return node if pos == counter
+    pos_at(node.next_node, pos, counter += 1)
+  end
 
+  def insert(pos, data)
+    node = Node.new(data)
+    next_node = pos_at(head, pos)
+    pos_at(head, pos - 1).next_node = node
+    node.next_node = node
+    node.next_node = next_node
+    return node
+    @counter += 1
+  end
 
+  
   
 
 end

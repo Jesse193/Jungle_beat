@@ -28,7 +28,7 @@ RSpec.describe LinkedList do
   xit "to_string" do
     list = LinkedList.new
     list.append("boop")
-    # expect(list.to_string). to eq("boop")
+    expect(list.to_string). to eq("boop")
   end
 
   xit "multiple data" do
@@ -36,11 +36,9 @@ RSpec.describe LinkedList do
     list.append("boop")
     expect(list.head.data). to eq("boop")
     list.append("beep")
-
-    expect(list.next_node.data). to eq("beep")
     expect(list.count). to eq(2)
     
-    # expect(list.to_string). to eq("boop beep")
+    expect(list.to_string). to eq("boop beep")
     
   end
 
@@ -49,12 +47,12 @@ RSpec.describe LinkedList do
     list.append("boop")
     list.append("beep")
     list.prepend("bop")
-    
     # expect(list.to_string). to eq("bop boop beep")
+    list.insert(1, "woo")
     
-    expect(list.count). to eq(3)
+    # expect(list.count). to eq(4)
 
-    
+    require 'pry'; binding.pry
   end
   
   
