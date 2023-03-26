@@ -10,7 +10,6 @@ class LinkedList
   def append(data)
     if @head != nil
       @head.next_node = Node.new(data)
-      
     else
       @head = Node.new(data)
     end
@@ -23,7 +22,6 @@ class LinkedList
   
   def to_string
     current_node = head
-    # require 'pry'; binding.pry
     string = []
     while current_node != nil
       string << current_node.data
@@ -41,7 +39,6 @@ class LinkedList
       @head = Node.new(data)
       @head.next_node = current_head
       @counter += 1
-      
     end
   end
 
@@ -93,9 +90,5 @@ class LinkedList
       break
     end
   end
-
-
-  
-
 end
 
