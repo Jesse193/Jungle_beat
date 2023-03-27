@@ -58,19 +58,21 @@ class LinkedList
   end
 
   def find(pos, num)
+    counter = 0
+    num = 0
+    pos = counter
+    current_node = head
+    while current_node.data != data
+      current_node = current_node.next_node
+      counter += 1
+      return current_node.data
+      num += 1
+    end
+
   end
   
   def includes?(data)
-    require 'pry'; binding.pry
     to_string.include?(data)
-    # current_node = head
-    # while current_node = current_node.next_node
-    #   if current_node.data == data
-    #     return true
-    #   elsif next_node = nil
-    #     return false
-    #   end
-    # end
   end
 
   def pop
