@@ -57,28 +57,20 @@ class LinkedList
     return node
   end
 
-  def find(pos1, pos2)
-    counter = 0
-    current_node = @head
-    while current_node.next_node != nil
-      counter += 1
-      current_node = current_node.next_node
-      return current_node if counter == pos1
-      break
-
-    end
+  def find(pos, num)
   end
   
   def includes?(data)
-    current_node = head
-    until current_node.data == data
-      current_node = current_node.next_node
-      return true if current_node.data == data
-    end
-  end
-
-  def delete
-    self.next_node = nil
+    require 'pry'; binding.pry
+    to_string.include?(data)
+    # current_node = head
+    # while current_node = current_node.next_node
+    #   if current_node.data == data
+    #     return true
+    #   elsif next_node = nil
+    #     return false
+    #   end
+    # end
   end
 
   def pop

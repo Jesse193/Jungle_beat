@@ -4,7 +4,7 @@ require './lib/linked_list'
 
 RSpec.describe LinkedList do
 
-  xit "appened" do
+  it "appened" do
     list = LinkedList.new
     expect(list.head).to eq(nil)
     list.append("boop")
@@ -12,7 +12,7 @@ RSpec.describe LinkedList do
     expect(list.head.next_node).to eq(nil)
   end
 
-  xit "count" do
+  it "count" do
     list = LinkedList.new
     list.append("boop")
     expect(list.count).to eq(1)
@@ -42,13 +42,37 @@ RSpec.describe LinkedList do
     expect(list.to_string).to eq("bop boop beep")
     list.insert(1, "woo")
     expect(list.count).to eq(4)
-    list.find(2, 1)
+  end
+
+  xit "find" do
+    list = LinkedList.new
+    list.append("boop")
+    list.append("beep")
+    list.prepend("bop")
+    list.insert(1, "woo")
+    expect(list.find(2, 1)).to eq("boop")
+    expect(list.find(1, 3)).to eq("woo boop beep")
+  end
+
+  it "includes?" do
+    list = LinkedList.new
+    list.append("boop")
+    list.append("beep")
+    list.prepend("bop")
+    list.insert(1, "woo")
     expect(list.includes?("beep")).to be(true)
     expect(list.includes?("hello")).to be(false)
-    expect(list.pop).to eq("beep")
-  
+  end
+
+  it "pop" do
+    list = LinkedList.new
+    list.append("boop")
+    list.append("beep")
+    list.prepend("bop")
+    list.insert(1, "woo")
+    list.pop
+    # expect(list.pop).to eq("beep")
     expect(list.to_string).to eq("bop woo boop")
-    require 'pry'; binding.pry
   end
   
   
