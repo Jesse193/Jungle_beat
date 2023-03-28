@@ -67,19 +67,20 @@ class LinkedList
     current_node = head
     counter = 0
     num_counter = 0
-    while counter != pos && num_counter != num
-      current_node = current_node.next_node
+    while counter != pos
       counter += 1
-      string << current_node.data
-      string << " "
-      num_counter += 1
+      current_node = current_node.next_node
+      # string << current_node.data
+      # string << " "
+      # num_counter += 1
     end
-    while counter == pos && num_counter != num
+    while num_counter != num
+      string << current_node.data
       num_counter += 1
       current_node = current_node.next_node
-      string << current_node.data
       string << " "
     end
+    
     string.strip
   end
   
