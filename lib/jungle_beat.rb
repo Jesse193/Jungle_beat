@@ -20,8 +20,16 @@ def append(data)
   end
   count
 end 
+
 def count
   @counter
 end
+
+def play
+  beats = "deep doo ditt woo hoo shu"
+  `say -r 100 #{beats}`
+end
+end
+
 
   
