@@ -8,10 +8,14 @@ class LinkedList
   end
 
   def append(data)
-    if @head != nil
-      @head.next_node = Node.new(data)
-    else
+    current_node = head
+    if @head == nil
       @head = Node.new(data)
+    else
+      while current_node.next_node != nil
+        current_node = current_node.next_node
+      end
+      current_node.next_node = Node.new(data)
     end
     @counter += 1
   end
@@ -22,12 +26,13 @@ class LinkedList
   
   def to_string
     current_node = head
-    string = []
+    string = ""
     while current_node != nil
       string << current_node.data
+      string << " "
       current_node = current_node.next_node
     end
-    string.join(" ")
+    string.strip
   end
   
   def prepend(data)
@@ -58,9 +63,22 @@ class LinkedList
   end
 
   def find(pos, num)
-    
+    string = ""
+    current_node = head
+    counter = 0
+    num_counter = 0
+    while counter != pos
+      counter += 1
+      current_node = current_node.next_node
     end
-
+    while num_counter != num
+      string << current_node.data
+      num_counter += 1
+      current_node = current_node.next_node
+      string << " "
+    end
+    
+    string.strip
   end
   
   def includes?(data)
@@ -68,6 +86,7 @@ class LinkedList
   end
 
   def pop
+    @counter -= 1
     current_node = head
     while current_node != nil
       current_node = current_node.next_node
