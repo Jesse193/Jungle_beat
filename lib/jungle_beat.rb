@@ -1,35 +1,28 @@
 class JungleBeat
-  attr_reader :list, :head, :LinkedList, :append, :Node, :data
-  def initialize
+  attr_reader :list, :append
+  def initialize(data = " ")
     @list = LinkedList.new
-    @head = head
     @counter = 0
-    @data = data
   end
-end
 
-def append(data)
-  current_node = head
-  if @head == nil
-    @head = Node.new(data)
-  else
-    while current_node.next_node != nil
-      current_node = current_node.next_node
+
+  def append(data)
+    beats = data.split
+    beats.each do |beat|
+      @list.append(beat)
+      @counter += 1
     end
-    current_node.next_node = Node.new(data)
+      return data
+  end 
+
+  def count
+    @counter
   end
-  count
-end 
 
-def count
-  @counter
+  def play
+    beats = @list.to_string
+    `say -r 100 #{beats}`
+  end
 end
-
-def play
-  beats = "deep doo ditt woo hoo shu"
-  `say -r 100 #{beats}`
-end
-end
-
 
   

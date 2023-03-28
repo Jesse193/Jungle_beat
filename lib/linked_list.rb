@@ -70,9 +70,6 @@ class LinkedList
     while counter != pos
       counter += 1
       current_node = current_node.next_node
-      # string << current_node.data
-      # string << " "
-      # num_counter += 1
     end
     while num_counter != num
       string << current_node.data
